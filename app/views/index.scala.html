@@ -1,0 +1,32 @@
+@()(implicit messages: Messages)
+
+@scripts = {
+</script>
+}
+
+@main("Twirl template", scripts) {
+ <section id="top">
+  <div class="wrapper">
+    <h1>@messages("application.title")</h1>
+  </div>
+ </section>
+ <section>
+        <nav id="tabmenu">
+            <ul class="nav nav-pills pull-left">
+              <li>Choice 1</li>
+              <li>Choice 2</li>
+            </ul>
+        </nav>
+ </section>
+ <div id="content" class="wrapper doc">
+   <article>
+     Nothing...
+   </article>
+  <aside>
+   Submenu...
+  </aside>
+ </div>
+ <footer>
+	<p>&copy; 2018 My application</p>	
+ </footer>
+}

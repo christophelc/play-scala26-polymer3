@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /                     controllers.Assets.at(path="/public", file="index.html")
+GET     /index                controllers.HomeController.index
+
+GET     /api/test             controllers.HomeController.test
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /*file                controllers.FrontendController.assetOrDefault(file)
+
+#main.scala.html
+GET     /*file                controllers.Assets.versioned(path="/public", file: Asset)
+
+#WevJars
+#->          /webjars                webjars.Routes
