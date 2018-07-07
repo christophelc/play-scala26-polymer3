@@ -19,7 +19,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   }
 
   def test = Action {
-    Ok(Json.toJson("data"))
+    Ok(Json.toJson("data-" + System.currentTimeMillis()))
   }
 
 }

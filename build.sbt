@@ -62,6 +62,16 @@ uiRun := {
       }
 }
 
+lazy val uiRunWithProxy = taskKey[Unit]("Execute frontend scripts as a standalone web polymer application proxying api requiest to play backend")
+uiRunWithProxy := {
+      val s: TaskStreams = streams.value
+      if((Process("polymer serve --proxy-target http://localhost:9000/api --proxy-path api", baseDirectory.value /"ui") !) == 0){
+        s.log.success("frontend ready")
+      } else {
+        throw new IllegalStateException("frontend failed to start !")
+      }
+}
+
 lazy val uiDeploy = taskKey[Unit]("Deploy files under ui/ to playframework application. Then use run to start the full stack application.")
 uiDeploy := {
       val s: TaskStreams = streams.value
